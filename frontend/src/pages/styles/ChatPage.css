@@ -1,0 +1,142 @@
+.chat-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: auto; /* Centraliza o chat na tela */
+}
+
+.chat-header{
+    text-align: center; /* Centraliza o texto do título */
+    margin: 10px 0;
+}
+
+.chat-body{
+    display: flex;  /* Ativa o Flexbox para organizar os elementos lado a lado */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    width: 100%;
+    gap: 20px; /*espaço entre os elementos*/
+}
+
+.user-list{
+    width: 25%; /* Define a largura da lista de usuários como 25% do chat */
+    min-width: 200px; /* Define um tamanho mínimo para garantir boa visibilidade */
+    background-color: var(--primary-color )  ; /* Define uma cor de fundo cinza claro */
+    padding: 10px; /* Adiciona um espaço interno para melhorar a aparência */
+    border-radius: 8px; /* Arredonda os cantos da caixa */
+    margin-left: 20px;
+}
+
+.user-list ul{
+    margin: 15px;
+}
+.user-list ul li::marker{
+    color: rgb(108, 247, 108);
+}
+
+.message-container{
+    display: flex;  /* Flexbox para empilhar mensagens e input */
+    flex-direction: column; 
+    background-color: var(--primary-color);
+    padding: 10px; /* Adiciona espaço interno */
+    border-radius: 8px; /* Arredonda os cantos */
+     /* Definimos tamanho fixo para não se estender até o fim da tela */
+    width: 70%;    /* Ajuste conforme o espaço desejado */
+    height: 635px;           /* Altura fixa para demonstrar (pode usar min-height) */
+    justify-content: space-between; /* Garante que .messages e .message-input fiquem separados */
+}
+/* Área onde as mensagens são exibidas */
+.messages{
+    flex: 1; /* Ocupa todo o espaço vertical disponível */
+    overflow-y: auto;        /* Permite rolagem se o conteúdo exceder a altura */
+    margin-bottom: 10px;     /* Espaço para separar do input */
+}
+
+.message-input{
+    display: flex;  /* Input e botão lado a lado */
+    width: 100%;
+    gap: 10px; /*Espaço entre eles*/
+    flex-direction: row;
+    align-items: center;
+}
+
+/* Ajustes no input para ficar maior */
+.message-input input {
+    flex: 1;                 /* Faz o input ocupar o máximo de espaço disponível */
+    width: 80%;
+    padding: 8px;            /* Espaçamento interno */
+    border-radius: 5px;
+    margin: 10px 0 10px 20px;
+    border: none;
+    outline: none;           /* Remove a borda de foco padrão */
+}
+
+.message-input button {
+    padding: 8px 16px;
+    width: 20%;
+    border-radius: 5px;
+    border: 3px solid transparent;
+    background-color: #646cff; /* Cor de destaque */
+    color: #fff;
+    cursor: pointer;
+    transition: border-color 0.25s;
+}
+
+.message-input button:hover {
+    border-color: var(--primary-color);
+}
+  
+.message-list{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.message{
+    background-color:#343a40 ;
+    padding: 5px 20px;
+    align-self: flex-start;
+    max-width: 70%; 
+    border-radius: 8px;
+    margin: 10px;
+     /* Garante que as palavras longas sejam quebradas quando atingirem o limite do container */
+    overflow-wrap: break-word;
+    word-wrap: break-word; /* Suporte para navegadores mais antigos */
+    white-space: normal;  /* Permite que o texto quebre em linhas */
+}
+
+.message-mine{
+    background-color:green ;
+    padding: 5px 20px;
+    align-self: flex-end;
+    max-width: 70%;
+    border-radius: 8px;
+    margin: 10px;
+     /* Garante que as palavras longas sejam quebradas quando atingirem o limite do container */
+    overflow-wrap: break-word;
+    word-wrap: break-word; /* Suporte para navegadores mais antigos */
+    white-space: normal;  /* Permite que o texto quebre em linhas */
+}
+/* === Media Query para telas menores === */
+@media (max-width: 768px) {
+    /* Esconde a lista de usuários em telas pequenas */
+    .user-list {
+        display: none;
+    }
+
+    /* Aumenta a largura do message-container para ocupar mais espaço */
+    .message-container {
+        width: 90%;
+        height: 500px; /* Ajuste conforme necessário para dispositivos móveis */
+    }
+
+    /* Ajusta o input e o botão para ficarem menores e mais adequados à tela */
+    .message-input input {
+        width: 100%; /* Ocupa toda a largura disponível no container de input */
+        margin: 10px 0; /* Remove o margin-left extra */
+    }
+
+    .message-input button {
+        padding: 6px 12px; /* Diminui o padding para um botão menor */
+        font-size: 0.9em;  /* Reduz o tamanho da fonte, se necessário */
+    }
+}
